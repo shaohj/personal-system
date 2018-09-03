@@ -1,0 +1,36 @@
+spring:
+  profiles: 
+    active: local
+
+server:
+  port: 18091
+  servlet:
+    context-path: /sys-web-server
+  compression:
+    enabled: true
+    mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/javascript
+
+#page view constants config
+pageRefreshTime: 30000
+menuMaxNum: 6
+menuMaxLevel: 2
+groupMaxLevel: 5
+codeMaxLevel: 5
+
+#请求处理的超时时间
+ribbon:
+  ReadTimeout: 30000
+  #请求连接的超时时间
+  ConnectTimeout: 30000
+hystrix.shareSecurityContext: true
+
+logging:
+  level:
+    root: INFO
+    com.psys.hobb: DEBUG
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: TRACE
+            mvc.method.annotation.ServletInvocableHandleMethod: TRACE

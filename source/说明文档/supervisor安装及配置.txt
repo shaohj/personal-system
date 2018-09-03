@@ -1,0 +1,49 @@
+linux安装python2.7: https://www.cnblogs.com/smileyes/p/7288487.html
+需要安装gcc套件：yum install gcc
+
+CentOS下supervisor安装与使用: https://blog.csdn.net/fanhenghui/article/details/51745517
+
+vi /etc/supervisord.conf;
+/usr/local/python2/bin/supervisorctl update;
+
+/usr/local/python2/bin/supervisorctl start eureka_server;
+/usr/local/python2/bin/supervisorctl start auth_server;
+/usr/local/python2/bin/supervisorctl start sec_server;
+/usr/local/python2/bin/supervisorctl start sys_server;
+
+/usr/local/python2/bin/supervisorctl stop eureka_server;
+/usr/local/python2/bin/supervisorctl stop auth_server;
+/usr/local/python2/bin/supervisorctl stop sec_server;
+/usr/local/python2/bin/supervisorctl stop sys_server;
+
+/usr/local/python2/bin/supervisorctl restart eureka_server;
+/usr/local/python2/bin/supervisorctl restart auth_server;
+/usr/local/python2/bin/supervisorctl restart sec_server;
+/usr/local/python2/bin/supervisorctl restart sys_server;
+
+tail -f /usr/local/app/eureka_log.file;
+tail -f /usr/local/app/auth_log.file;
+tail -f /usr/local/app/sec_log.file;
+tail -f /usr/local/app/sys_web_log.file;
+
+[program:eureka_server]
+command=/root/dev/java/jdk/jdk1.8.0_151/bin/java -jar /usr/local/app/psys-eureka-server.jar
+stdout_logfile = /usr/local/app/eureka_log.file
+
+[program:auth_server]
+command=/root/dev/java/jdk/jdk1.8.0_151/bin/java -jar /usr/local/app/psys-auth-server.jar
+stdout_logfile = /usr/local/app/auth_log.file
+
+[program:sec_server]
+command=/root/dev/java/jdk/jdk1.8.0_151/bin/java -jar /usr/local/app/psys-sec-server.jar
+stdout_logfile = /usr/local/app/sec_log.file
+
+[program:sys_server]
+command=/root/dev/java/jdk/jdk1.8.0_151/bin/java -jar /usr/local/app/psys-sys-web-server.jar
+stdout_logfile = /usr/local/app/sys_web_log.file
+
+错误解决参考：
+/usr/lib64/python2.7/socket.py
+supervisord -c /etc/supervisord.conf
+supervisorctl -c /etc/supervisord.conf
+

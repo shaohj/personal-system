@@ -1,0 +1,28 @@
+/* CSS Document */
+
+#dvMsgBox{display:none;position:fixed;font-size:12px;width:300px;overflow:hidden;z-index:9999; border-radius:3px; font-family:微软雅黑;}  
+#dvMsgBox .top{height:40px; background-color:#ccc;padding-left:16px; float:left; width:100%;}  
+#dvMsgBox .top .boxright{height:100%;padding-right:6px;}  
+#dvMsgBox .top .boxright .title{height:100%;line-height:40px;color:#222;vertical-align:middle;font-size:14px;font-weight:700;overflow:hidden;}  
+#dvMsgBox .body{background:#fff;padding-left:10px;}  
+#dvMsgBox .body .boxright{background:#fff;padding-right:2px;}  
+#dvMsgBox .body .boxright .ct{  line-height: 60px;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+  color:#555;
+  font-size: 14px;}  
+#dvMsgBox .body .boxright .ct .pro{width:280px;border:solid 1px #6593cf;height:25px;background:#ffffff;line-height:23px;overflow:hidden;}  
+#dvMsgBox .body .boxright .ct .pro .bg{width:0%;height:100%;background:#c9dffc;}  
+#dvMsgBox .bottom{background:#fff;padding-left:6px;}  
+#dvMsgBox .bottom .right{height:100%;/*background:transparent url(right-corners.png) no-repeat right bottom;*/padding-right:6px;}  
+input.boxbtn{width:56px;   border-radius: 3px; font-family:微软雅黑; cursor:pointer; color:#647a92; border:none; height:25px; text-align:center;  background-color:#c6dbee;text-align:center; margin:0px auto;}  
+input.boxbtnfocus{ background-color:#b8ddff; font-family:微软雅黑;   border-radius: 3px;width:56px;margin:0px auto; border:none; height:25px; cursor:pointer; color:#647a92;}  
+#dvMsgBox .icon{width:32px;height:32px;float:left;margin-right:10px;}  
+#dvMsgBox .error{background:url(icon-error.gif) no-repeat;}  
+#dvMsgBox .info{background:url(icon-info.gif) no-repeat;}  
+#dvMsgBox .warning{background:url(icon-warning.gif) no-repeat;}  
+#dvMsgBox .clear{clear:both;}  
+#dvMsgBox .height{height:10px;line-height:10px;}  
+#ShowBolightBox{display:none;-moz-opacity:0.5;filter:alpha(opacity=50);opacity:0.5;background-color:#000000;z-index:999;position:absolute;left:0px;top:0px;}
+#dvMsgBtns{ text-align:center; width:100%;}

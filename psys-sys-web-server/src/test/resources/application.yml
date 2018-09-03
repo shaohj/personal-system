@@ -1,0 +1,82 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:18080/eureka-server/eureka/
+
+server:
+  port: 18091
+  servlet:
+    context-path: /sys-web-server
+
+spring:
+  application:
+    name: sys-web-server
+  freemarker:
+    suffix: .ftl
+    allow-request-override: false
+    cache: false
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    template-loader-path: classpath:/templates/
+    request-context-attribute: request
+  #################redis基础配置#################
+  redis:
+    host: www.hanjieshao.com.cn
+    database: 0
+    password: 123456
+    port: 6379
+    timeout: 3600 # 连接超时时间（毫秒）
+    #################redis线程池设置#################
+    jedis:
+      shutdown-timeout: 1000
+      pool:
+        max-idle: 8 # 连接池中的最大空闲连接，默认值也是8。
+        min-idle: 0 # 连接池中的最小空闲连接，默认值也是0。
+        max-active: 8 # 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
+        max-wait: 1000 # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
+
+auth-server: http://localhost:18090/auth-server
+security:
+  oauth2:
+    client:
+      client-id: demo
+      client-secret: demo
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      scope: app
+    resource:
+      token-info-uri: ${auth-server}/oauth/check_token
+
+#请求处理的超时时间
+ribbon:
+  ReadTimeout: 30000
+  #请求连接的超时时间
+  ConnectTimeout: 30000
+hystrix:
+  shareSecurityContext: true
+
+logging:
+  level:
+    root: INFO
+    com.psys.hobb: DEBUG
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: TRACE
+            mvc.method.annotation.ServletInvocableHandleMethod: TRACE
+  file: log/sys-web-server.log
+
+#page view constants config
+pageRefreshTime: 30000
+menuMaxNum: 6
+menuMaxLevel: 2
+groupMaxLevel: 5
+codeMaxLevel: 5
+
+shaohj:
+  sec-context: http://localhost:18081/sec-server

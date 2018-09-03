@@ -1,0 +1,74 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:18080/eureka-server/eureka/
+
+spring:
+  application:
+    name: auth-server
+  #=====================jpa config================================
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  freemarker:
+    suffix: .ftl
+    allow-request-override: false
+    cache: false
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    template-loader-path: classpath:/templates/
+    request-context-attribute: request
+  #################redis基础配置#################
+  redis:
+    host: www.hanjieshao.com.cn
+    database: 0
+    password: 123456
+    port: 6379
+    timeout: 3600 # 连接超时时间（毫秒）
+    #################redis线程池设置#################
+    jedis:
+      shutdown-timeout: 1000
+      pool:
+        max-idle: 8 # 连接池中的最大空闲连接，默认值也是8。
+        min-idle: 0 # 连接池中的最小空闲连接，默认值也是0。
+        max-active: 8 # 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
+        max-wait: 1000 # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
+
+security:
+  oauth2:
+    client:
+      client-id: demo
+      client-secret: demo
+      scope: app
+      auto-approve-scopes: .*
+    authorization:
+      check-token-access: permitAll()
+
+#=====================multiple database config============================
+db:
+  #database1
+  first:
+    datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/psys_oauth2_db
+      username: root
+      password: root
+      #database1 connection pool config
+      initialSize: 5
+      minIdle: 5
+      maxIdle: 10
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false

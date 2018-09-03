@@ -1,0 +1,17 @@
+示例:
+1.进入Authorization，type选择oauth2.0
+
+2.点击get new access token创建token
+
+3.具体配置
+Token Name: psys_token
+Auth URL:http://localhost:18090/auth-server/oauth/authorize
+Access Token URL:http://localhost:18090/auth-server/oauth/token
+Client ID: **
+Client Secret: **
+Scope(Optional):
+Grant Type: Authorization Code
+
+4.点击 request token，进入登录页面登录成功获取token
+
+5.在需要的接口上面进入进入Authorization，type选择oauth2.0，然后选择已存在的token即可

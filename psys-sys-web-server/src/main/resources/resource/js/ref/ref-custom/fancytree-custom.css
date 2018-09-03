@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/** 覆盖默认样式 start */
+#exTree .fancytree-container{
+	border: 0;
+	outline: 0;
+}
+
+#exTree .fancytree-plain span.fancytree-node:hover span.fancytree-title {
+	color: #4287c7;
+	background-color: white;
+}
+
+#exTree span.fancytree-active span.fancytree-title,
+#exTree span.fancytree-selected span.fancytree-title {
+	background-color: #e8f0f8;
+}
+
+#exTree span.fancytree-title{
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	max-width: 100px;
+	border: 0px;
+}
+/** 覆盖默认样式 end */
+
+#exTree .exTree {
+	padding: 10px;
+	width: 220px;
+	table-layout:fixed;
+	background-color:white;
+}
+
+#exTree * {
+	font-size: 14px;
+	color: #555;
+}
+
