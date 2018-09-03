@@ -15,9 +15,9 @@ spring:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   #################redis基础配置#################
   redis:
-    host: www.hanjieshao.com.cn
+    host: localhost
     database: 0
-    password: 123456
+    password: 
     port: 6379
     timeout: 3600 # 连接超时时间（毫秒）
     #################redis线程池设置#################
