@@ -1,5 +1,5 @@
 # personal-system
-  [系统首页(账号密码为admin/admin)](http://shaohj.com:18091/sys-web-server/tourist) 
+  [系统首页(账号密码为admin/admin)](http://www.shjfun.com:18091/sys-web-server/tourist) 
 ## 系统简介
   个人开发的一套管理系统，主要是为了学习相关技术，并用新技术应用到项目中实战。
 ## 技术框架
