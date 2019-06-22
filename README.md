@@ -36,9 +36,9 @@ oauth2使用时,下列配置项需要配置,否则oauth2会认证不成功。```
 * 启动sys-web-server
 
 ### 启动成功后页面
-[eureka](http://localhost:18080/eureka-server/)
-[登录页面，账号密码为admin/admin)](http://localhost:18090/auth-server/login)
-[首页](http://localhost:18091/sys-web-server/index)
+* [eureka](http://localhost:18080/eureka-server/)
+* [登录页面，账号密码为admin/admin)](http://localhost:18090/auth-server/login)
+* [首页](http://localhost:18091/sys-web-server/index)
 
 ### 参考
 [markdown文件的基本常用编写语法](https://www.cnblogs.com/liugang-vip/p/6337580.html) 
