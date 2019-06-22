@@ -1,0 +1,34 @@
+一、supervisor配置
+vi /etc/supervisord.conf;
+/usr/bin/supervisorctl update;
+
+[program:eureka_server]
+command=/usr/local/java/jdk1.8.0_181/bin/java -Xms10m -Xmx512m -jar /root/mvntemp/personal-system/psys-eureka-server/target/psys-eureka-server.jar
+stdout_logfile = /usr/local/app/eureka_log.file
+
+[program:auth_server]
+command=/usr/local/java/jdk1.8.0_181/bin/java -Xms10m -Xmx512m -jar /root/mvntemp/personal-system/psys-auth-server/target/psys-auth-server.jar
+stdout_logfile = /usr/local/app/auth_log.file
+
+[program:sec_server]
+command=/usr/local/java/jdk1.8.0_181/bin/java -Xms10m -Xmx512m -jar /root/mvntemp/personal-system/psys-sec-server/target/psys-sec-server.jar
+stdout_logfile = /usr/local/app/sec_log.file
+
+[program:sys_server]
+command=/usr/local/java/jdk1.8.0_181/bin/java -Xms10m -Xmx512m -jar /root/mvntemp/personal-system/psys-sys-web-server/target/psys-sys-web-server.jar
+stdout_logfile = /usr/local/app/sys_web_log.file
+
+supervisorctl restart eureka_server;
+tail -f /usr/local/app/eureka_log.file;
+
+supervisorctl restart auth_server;
+tail -f /usr/local/app/auth_log.file;
+
+supervisorctl restart sec_server;
+tail -f /usr/local/app/sec_log.file;
+
+supervisorctl restart sys_server;
+tail -f /usr/local/app/sys_web_log.file;
+
+
+

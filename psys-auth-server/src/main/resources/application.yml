@@ -1,6 +1,6 @@
 spring:
   profiles: 
-    active: localdb
+    active: local
 
 server:
   port: 18090

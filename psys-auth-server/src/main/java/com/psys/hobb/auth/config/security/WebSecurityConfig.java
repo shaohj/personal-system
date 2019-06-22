@@ -59,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 	    	.authorizeRequests()
 				/** 配置项目请求对应的角色权限 */
-	        	.antMatchers("/", "/login**", "/login/**", "/loginout", "/user/oauth/revokeToken").permitAll()
+	        	.antMatchers("/", "/login**", "/login/**", "/user/query/**", "/loginout", "/user/oauth/revokeToken").permitAll()
 	        	.antMatchers("/error", "/error/**").permitAll()
 				.anyRequest().authenticated()
 		.and()

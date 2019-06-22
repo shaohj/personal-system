@@ -1,8 +1,13 @@
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.9

@@ -1,0 +1,38 @@
+mkdir /var/git/personal-system
+chown -R git:git personal-system
+
+cd /var/git/personal-system
+git init
+
+-- 生成主分支
+vi README.md
+git add README.md
+git commit -m "write a README.md,generate a master"
+
+错误解决
+remote:error:refusing to update checked out branch:refs/heads/master
+https://blog.csdn.net/lxy15329/article/details/8778999
+
+idea检出后：Push rejected: Push to origin/master was rejected
+解决参考：https://blog.csdn.net/u012934325/article/details/71023241
+git pull origin master --allow-unrelated-histories
+
+参考：
+本地库与远程库关联
+git remote add origin git@47.75.47.157:/var/git/empty.git
+git push origin master
+
+git更新到最新版本
+git reset --hard HEAD
+
+项目检出及更新：
+mkdir -p /root/mvntemp/personal-system;
+
+cd /var/git/personal-system;
+git reset --hard HEAD;
+rm -rf /root/mvntemp/personal-system/*;
+cp -rf /var/git/personal-system/* /root/mvntemp/personal-system;
+
+项目打包
+cd /root/mvntemp/personal-system;
+mvn clean package;

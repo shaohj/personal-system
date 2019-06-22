@@ -23,7 +23,6 @@
     <module>psys-eureka-server</module>
     <module>psys-sys-web-server</module>
     <module>psys-auth-server</module>
-    <module>psys-zuul-server</module>
   </modules>
 
   <properties>

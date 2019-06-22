@@ -1,0 +1,1 @@
+nohup java -jar /usr/local/app/psys-sys-web-server.jar > sys-web_log.file 2>&1 &

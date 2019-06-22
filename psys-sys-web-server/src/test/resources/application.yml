@@ -1,9 +1,12 @@
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://localhost:18080/eureka-server/eureka/
+
+server:
+  port: 18091
+  servlet:
+    context-path: /sys-web-server
 
 spring:
   application:
@@ -20,12 +23,11 @@ spring:
     expose-spring-macro-helpers: false
     template-loader-path: classpath:/templates/
     request-context-attribute: request
-    settings.number_format: 0.##
   #################redis基础配置#################
   redis:
-    host: localhost
+    host: www.hanjieshao.com.cn
     database: 0
-    password:
+    password: 123456
     port: 6379
     timeout: 3600 # 连接超时时间（毫秒）
     #################redis线程池设置#################
@@ -49,6 +51,32 @@ security:
     resource:
       token-info-uri: ${auth-server}/oauth/check_token
 
+#请求处理的超时时间
+ribbon:
+  ReadTimeout: 30000
+  #请求连接的超时时间
+  ConnectTimeout: 30000
+hystrix:
+  shareSecurityContext: true
+
+logging:
+  level:
+    root: INFO
+    com.psys.hobb: DEBUG
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: TRACE
+            mvc.method.annotation.ServletInvocableHandleMethod: TRACE
+  file: log/sys-web-server.log
+
+#page view constants config
+pageRefreshTime: 30000
+menuMaxNum: 6
+menuMaxLevel: 2
+groupMaxLevel: 5
+codeMaxLevel: 5
+
 shaohj:
   sec-context: http://localhost:18081/sec-server
-  auth-service: http://localhost:18090/auth-server

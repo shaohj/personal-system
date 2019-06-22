@@ -16,7 +16,7 @@ public class RandomValidateCode {
 	
 	private Random random = new Random();
 	
-	private String randString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private String randString = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 
 	private int width = 80;
 	private int height = 26;

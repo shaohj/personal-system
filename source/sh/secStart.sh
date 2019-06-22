@@ -1,0 +1,1 @@
+nohup java -jar /usr/local/app/psys-sec-server.jar > sec_log.file 2>&1 &

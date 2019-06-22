@@ -1,0 +1,1 @@
+nohup java -jar /usr/local/app/psys-auth-server.jar > auth_log.file 2>&1 &

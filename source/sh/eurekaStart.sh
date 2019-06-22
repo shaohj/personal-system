@@ -1,0 +1,1 @@
+nohup java -jar /usr/local/app/psys-eureka-server.jar > eureka_log.file 2>&1 &
